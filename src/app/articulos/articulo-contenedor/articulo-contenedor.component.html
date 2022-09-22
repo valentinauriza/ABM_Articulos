@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <app-articulo-alta *ngIf="formAlta" 
+                (onNuevoArticulo)="actualizarListado()"
+                (onCancelar)="mostrarFormAlta(false)">
+            </app-articulo-alta>
+
+            <app-articulo-modificar *ngIf="formMod" 
+                (onNuevoArticulo)="actualizarListado()"
+                (onCancelar)="mostrarFormAlta(false)" 
+                [id]="idSeleccionado">
+            </app-articulo-modificar>
+        </div>
+
+        <div class="col-md-7">
+            <app-articulo-lista [listado]="lista" 
+            (onAlta)="mostrarFormAlta(true)"
+            (onModificar)="mostrarFormMod($event)">
+        </app-articulo-lista>
+        </div>
+    </div>
+</div>

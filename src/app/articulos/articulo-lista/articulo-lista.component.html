@@ -1,0 +1,34 @@
+<div class="container">
+    <button type="button" class="btn btn-secondary" (click)="altaArticulo()" routerLink="/contenedor">Nuevo
+        Artículo</button>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Acciones</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let art of listado">
+                <th scope="row">{{art.id}}</th>
+                <td>{{art.nombre}}</td>
+                <td>{{art.precio}}</td>
+                <td>{{art.stock}}</td>
+                <td>{{art.categoria.categoria}}</td>
+                <td><button type="button" class="btn btn-secondary" 
+                    (click)="modificar(art)">Modificar</button></td>
+                <td>
+                    <app-articulo-baja [articulo]="art" (onEliminar)="cargarListado()"></app-articulo-baja>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <form>
+        <div class="mb-3">
+            <label for="nomb" class="form-label">Nombre:</label>
+            <input type="text" [(ngModel)]="articulo.nombre" class="form-control" id="nomb" name="nombre">
+        </div>
+
+        <div class="mb-3">
+            <label for="pre" class="form-label">Precio:</label>
+            <input type="text" [(ngModel)]="articulo.precio" class="form-control" id="pre" name="precio">
+        </div>
+
+        <div class="mb-3">
+            <label for="stoc" class="form-label">Stock:</label>
+            <input type="text" [(ngModel)]="articulo.stock" class="form-control" id="stoc" name="stock">
+        </div>
+
+        <div class="mb-3">
+            <label for="categoria" class="form-label">Categoría:</label>
+            <select class="form-select" name="categoria" [(ngModel)]="articulo.categoria">
+                <option [ngValue]="c" *ngFor="let c of listaCat" selected>{{c.categoria}}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary"  (click)="agregar()" >Agregar</button>
+        <button type="button" class="btn btn-primary" (click)="cancelar()">Cancelar</button>
+    </form>
+</div>
